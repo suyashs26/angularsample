@@ -1,0 +1,152 @@
+<div class="page-holder align-items-center py-4 bg-gray-100 vh-100">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- register -->
+       <div class="col-lg-6 px-lg-4" >
+        <div class="card">
+          <div class="card-body p-lg-5">
+             <h3 class="mb-4">Get started by Registering </h3> 
+            
+            <form [formGroup]="registerForm" id="registrationForm"action="index.html">
+
+              <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Name" formControlName= "name" [(ngModel)]=register.name>
+                <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)"  class="alert-invalid" class="text" >Name is required with min 4 letters</div>
+                <label for="name">Name</label>
+              </div>
+
+             <!-- <div class="form-floating mb-3">
+                <input class="form-control" type="date" id="DOB"  placeholder="DOB" formControlName= "dob">                  
+                <div *ngIf="f.dob.invalid && (f.dob.dirty || f.dob.touched)"  class="alert-invalid" class="text">Date of birth is required</div>
+                <label for="birthday">DOB</label>
+              </div>-->
+
+
+              <div class="form-floating mb-3">
+                <input class="form-control"  placeholder="Phone number" formControlName= "mobile" [(ngModel)]=register.phoneNo>
+                <div *ngIf="f.mobile.invalid && (f.mobile.dirty || f.mobile.touched)"  class="alert-invalid" class="text">Phone number is required with 10 digits</div>
+                <label for="phoneNumber">Phone number</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input class="form-control" id="username" type="email" placeholder="Username" formControlName= "username" [(ngModel)]=register.userName>
+                <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)"  class="alert-invalid"  class="text">UserNumber is required</div>
+                <label for="username">UserNumber</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input class="form-control" id="floatingInput" type="email" placeholder="name@example.com" formControlName= "email" [(ngModel)]=register.emailId>
+                <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)"  class="alert-invalid" class="text">Email is invalid</div>
+                <label for="floatingInput">Email address</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input class="form-control" id="floatingPassword" type="password" placeholder="Password" formControlName= "password" [(ngModel)]=register.password>
+                <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)"  class="alert-invalid" class="text">Password is invalid</div>
+                <label for="floatingPassword">Password</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input class="form-control" id="floatingPassword" type="password" placeholder="Confirm Password" formControlName= "confirmPassword">
+                <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)"  class="alert-invalid" class="text">Password is invalid
+                  
+                </div>
+                <div class="alert-invalid" *ngIf="registerForm.hasError('notSame')" class="text">
+                  Password Mismatch.
+                </div>
+                <label for="floatingPassword">Confirm Password</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Address" formControlName= "address" [(ngModel)]=register.address>
+                <div *ngIf="f.address.invalid && (f.address.dirty || f.address.touched)"  class="alert-invalid" class="text">Address is required</div>
+                <label for="address">Address</label>
+              </div>
+               <!-- <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Address" formControlName= "city" [(ngModel)]=register.city>
+                <div *ngIf="f.city.invalid && (f.city.dirty || f.city.touched)"  class="alert-invalid" class="text">Address is required</div>
+                <label for="address">City</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Address" formControlName= "state" [(ngModel)]=register.state>
+                <div *ngIf="f.state.invalid && (f.state.dirty || f.state.touched)"  class="alert-invalid" class="text">Address is required</div>
+                <label for="address">State</label>
+              </div> -->
+              <div>
+               Select city<select [(ngModel)]=register.city formControlName= "city" > 
+                <div *ngIf="f.city.invalid && (f.city.dirty || f.city.touched)"  class="alert-invalid" class="text">City is required</div>
+                <option value="Chennai">Chennai</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                
+              </select>
+              </div>
+
+              <div>
+               Select State<select [(ngModel)]=register.state formControlName= "state"> 
+                <div *ngIf="f.city.invalid && (f.city.dirty || f.city.touched)"  class="alert-invalid" class="text">City is required</div>
+                <option value="Tamilnadu">Tamilnadu</option>
+                <option value="Maharastra">Maharastra</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Telangana">Telangana</option>
+                <div *ngIf="f.state.invalid && (f.state.dirty || f.state.touched)"  class="alert-invalid" class="text">state is required</div>
+              </select>
+              </div>
+              <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Address" formControlName= "pincode" [(ngModel)]=register.pincode>
+                <div *ngIf="f.pincode.invalid && (f.pincode.dirty || f.pincode.touched)"  class="alert-invalid" class="text">Pincode is required with 4 digits</div>
+                <label for="address">Pincode</label>
+              </div>
+               <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Address" formControlName= "card" [(ngModel)]=register.cardType>
+                <div *ngIf="f.card.invalid && (f.card.dirty || f.card.touched)"  class="alert-invalid" class="text">Card Type is required.Choose Gold or Platinum</div>
+                <label for="card">Enter card</label>
+              </div> 
+              <!-- <select [(ngModel)]=register.cardType>
+                <option value="Gold">Gold</option>
+                <option value="Platinum">Platinum</option>
+              </select> -->
+              <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Name"  formControlName= "bankName"  [(ngModel)]=register.bank>
+                <div *ngIf="f.bankName.invalid && (f.bankName.dirty || f.bankName.touched)"  class="alert-invalid" class="text">Bank Name required with 4 letters</div>
+                <label for="bank name">Bank Name</label>
+              </div>
+
+              <div class="form-floating mb-3" >
+                <input class="form-control" placeholder="Savings Account Number" formControlName= "bankNumber" [(ngModel)]=register.accId>
+                <div *ngIf="f.bankNumber.invalid && (f.bankNumber.dirty || f.bankNumber.touched)"  class="alert-invalid" class="text">Account number is invalid</div>
+                <label for="accountNumber">Savings Account Number</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input class="form-control" placeholder="IFSC Code" formControlName= "ifsc" [(ngModel)]=register.ifscCode>
+                <div *ngIf="f.ifsc.invalid && (f.ifsc.dirty || f.ifsc.touched)"  class="alert-invalid" class="text">IFSC Code is invalid</div>
+                <label for="ifsc">IFSC Code</label>
+              </div>
+
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="agree" id="agree" formControlName= "cb">
+                <div *ngIf="f.cb.invalid" class="alert-invalid">Required</div>
+                <label class="form-check-label" for="agree">I agree with the <a href="#">Terms & Conditions</a>.</label>
+              </div> 
+
+              <div class="form-group">
+                <button class="btn btn-primary" id="regidter" type="button" name="registerSubmit" [disabled]="registerForm.invalid"  [routerLink]="['/login']" routerLink Active="active" (click)=registerUser()>Register</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card-footer px-lg-5 py-lg-4">
+            <div class="text-sm text-muted">Already have an account? <a (click)="user_login()"  [routerLink]="['/login']" routerLink Active="active">Login</a>.</div>
+          </div>
+
+        </div>
+      </div>
+     <!-- <div class="col-lg-6 col-xl-5 ms-xl-auto px-lg-4 text-center text-primary"><img class="img-fluid mb-4" width="300" src="https://therichpost.com/wp-content/uploads/2021/06/login_page_image.png" alt="" style="transform: rotate(10deg)">
+        <h1 class="mb-4">Therichpost.com <br class="d-none d-lg-inline">free code  snippets.</h1>
+        <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+      </div> -->
+    </div>
+  </div>
+</div>

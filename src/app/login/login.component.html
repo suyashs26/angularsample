@@ -1,0 +1,36 @@
+
+<div class="page-holder align-items-center py-4 bg-gray-100 vh-100">    
+    <div class="container">
+        <div class="row align-items-center">
+        <div class="col-lg-6 px-lg-4"  >
+            <div class="card">
+                <div class="card-body p-lg-5">
+                    <h3 class="mb-4">Hi, welcome back! 👋👋</h3>
+                    
+                    <form [formGroup]="loginForm"     action="index.html">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="floatingInput" name="email" formControlName= "email" type="email" placeholder="name@example.com" [(ngModel)]="user.userName" >
+                        <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)"  class="alert-invalid" class="text">CustomerID is invalid</div>
+                        <label for="floatingInput">Customer ID</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="floatingPassword" name="passsword" formControlName= "password" type="password" placeholder="Password" [(ngModel)]= "user.password" >
+                        <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)"  class="alert-invalid" class="text">Password is invalid</div>
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
+                    <button class="btn btn-primary" type="button" [disabled]="loginForm.invalid" (click)= "loginUser()" routerLink Active="active">Submit</button>
+                    </form>
+                </div>
+                <div class="card-footer px-lg-5 py-lg-4">
+                    <div class="text-sm text-muted">Don't have an account? <a (click)="user_register()"[routerLink]="['/register']" routerLink Active="active">Register</a>.</div>
+                    <div class="text-sm text-muted">Log in as Admin <a (click)="admin_login()"  [routerLink]="['/admin-login']" routerLink Active="active">Admin Login</a>.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

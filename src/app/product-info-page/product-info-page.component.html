@@ -1,0 +1,49 @@
+
+<div class="header1" align ="left">
+  <h5>Hi, Usernmame!</h5>
+</div>
+
+
+<h3 align="middle">Checkout:</h3><br>
+<section align="middle">
+  <img src={{products.imageurl}} alt="Lamp" width="150" height="150">
+</section><br>
+
+<div class="products" align="middle">
+PRODUCT NAME: {{products.product_name}}<br>
+PRODUCT DETAILS: {{products.product_type}}<br>
+COST: Rs.{{products.cost}}<br><br>
+<div >
+<div *ngIf="usersEmiPeriod else:ElseBlock">
+<div class="emi-period" align ="middle">
+  <h5>EMI Period:</h5>
+  <select [(ngModel)]="selectedEmi" (click)="selectEmi()"> 
+    <option *ngFor="let emiPeriod of emi1">
+      {{ emiPeriod}}
+    </option>
+  </select>
+</div>
+</div>
+<ng-template #ElseBlock>
+<div class="emi-period" align ="middle">
+  <h5>EMI Period:</h5>
+  <select [(ngModel)]="selectedEmi" (click)="selectEmi()"> 
+    <option *ngFor="let emiPeriod of emi1">
+      {{emiPeriod}}
+    </option>
+  </select>
+</div>
+</ng-template>
+</div>
+<div class="installments" align ="middle">
+  <br> EMI Starting:{{toPay}}
+</div>
+
+<div class="pay-now" align ="middle">
+  <button [disabled]=completePayment (click)="payment()"> Pay Now</button><br><br>
+</div>
+
+<div class="footer">
+  <a href="tnc" align="middle" style="width: 100%; display: block;">Terms and Conditions</a>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,42 @@
+
+<div class="page-holder align-items-center py-4 bg-gray-100 vh-100">    
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 px-lg-4"  >
+                <div class="card">
+                    <div class="card-body p-lg-5">
+                        <h3 class="mb-4">Admin Login</h3>
+                    
+                        <form [formGroup]="loginForm"  action="index.html">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="floatingInput" name="email" formControlName= "email" type="email" placeholder="name@example.com" [(ngModel)]="userName" >
+                            <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)"  class="alert-invalid" class="text">Email is invalid</div>
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="floatingPassword" name="passsword" formControlName= "password" type="password" placeholder="Password" [(ngModel)]="password" >
+                            <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)"  class="alert-invalid" class="text">Password is invalid</div>
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                       <!-- <div class="form-floating mb-3">
+                            <input class="form-control" id="floatingPassword" name="passsword" formControlName= "password" type="password" placeholder="Password" [(ngModel)]="password" >
+                            <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)"  class="alert-invalid" class="text">Invalid credi</div>
+                            <label for="floatingPassword">Password</label>
+                        </div>-->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                            <label class="form-check-label" for="remember">Remember me</label>
+                        </div>
+                        <button class="btn btn-primary" type="button" [disabled]="loginForm.invalid" (click)="adminLogin()" routerLink Active="active">Submit</button>
+                        </form>
+                    </div>
+
+                    <div class="card-footer px-lg-5 py-lg-4">
+                        <div class="text-sm text-muted">Don't have an account? <a (click)="admin_register()"[routerLink]="['/register']" routerLink Active="active">Register</a>.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

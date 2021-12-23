@@ -1,0 +1,19 @@
+<div class="header" align ="right">
+  <button [routerLink]="['/dashboard/',user_id]">Dashboard</button>
+</div>
+<!--<div class="header" align ="right">
+  <button [routerLink]="['/']">Logout</button>
+</div>-->
+
+<table  *ngFor="let product of products" cellspacing=20 cellpadding=10>
+ <tr>
+      <td> <img src={{product.imageurl}}></td>
+       <td>
+      <p>Product name: {{product.product_name}} </p>
+      <p>Product Details: {{product.product_type}} </p>
+      <p>Cost: {{product.cost}} </p>
+      <button [routerLink]="['/product-info-page',user_id,product.product_id]" routerLink Active="active">Buy now</button><br>
+      </td>
+      </tr>
+</table>
+  

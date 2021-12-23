@@ -1,0 +1,22 @@
+<header class="header sticky-top">
+  <a href="" class="logo">Kishtallments</a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn">
+    <span class="navicon"></span>
+  </label>
+  <ul class="menu">
+    <!-- <li><a [routerLink]="['/dashboard',id]" routerLink Active="active">dashboard</a></li> -->
+    <li *ngIf="isLogged===false"><a [routerLink]="['/login']" routerLink Active="active">Login</a></li>
+    <li  *ngIf="isLogged===false"><a [routerLink]="['/register']" routerLink Active="active">Register</a></li>
+    <li *ngIf="isLogged===true" >
+      <button type="button" (click)="logOut()">LogOut</button>
+    </li>
+
+  </ul>
+
+
+</header>
+<p routerLink="/register">Register</p>
+
+
+<!--<router-outlet></router-outlet>-->

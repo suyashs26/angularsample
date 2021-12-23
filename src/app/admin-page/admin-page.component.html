@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+
+<h3 align ="middle">Admin Page</h3>
+<html>
+  <body>
+    <div>
+      Enter User_ID
+      <input type=text placeholder="Search by User_ID" name=e1 [(ngModel)]="userid" (ngModelChange)="updateUserArray()">
+
+      <table border=10 cellspacing=10 cellpadding=10 *ngIf="tempUsers && tempUsers.length">
+        <thead>
+          <tr>
+            <th>User_ID</th>
+            <th>Name</th>
+            <th>Phone_Number</th>
+            <th>Email_ID</th>
+            <th>User_Joining_Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of tempUsers">
+            <td>{{user.userId}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.phoneNo}}</td>
+            <td>{{user.emailId}}</td>
+            <td>{{user.userJoiningDate}}</td>
+            <td>
+              <button type=button (click)="deleteEmployee(user.userId)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </body>
+</html>
